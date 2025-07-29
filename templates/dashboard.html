@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .welcome-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        h1 {
+            color: #343a40;
+            margin-top: 0;
+        }
+        .user-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #495057;
+        }
+        .info-value {
+            color: #212529;
+        }
+        .security-notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación segura -->
+    <nav class="navbar">
+        <div class="navbar-brand">Mi Aplicación Segura</div>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Cerrar Sesión</a>
+    </nav>
+
+    <div class="container">
+        <!-- Sección de bienvenida -->
+        <section class="welcome-section">
+            <h1>Bienvenido, <span>{{ name }}</span>!</h1>
+            <p>Has accedido al área protegida de la aplicación.</p>
+            
+            <!-- Información del usuario -->
+            <div class="user-info">
+                <p><span class="info-label">Tu sesión es segura porque:</span></p>
+                <ul>
+                    <li>Usamos cookies HTTPOnly protegidas</li>
+                    <li>La sesión expira después de 30 minutos de inactividad</li>
+                    <li>Todos los datos se transmiten de forma segura</li>
+                </ul>
+            </div>
+
+            <!-- Aviso de seguridad -->
+            <div class="security-notice">
+                <p>🔒 <strong>Protección de seguridad activa:</strong> Nunca compartas tus credenciales y cierra sesión cuando termines.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts seguros (ninguno incluido para evitar XSS) -->
+</body>
+</html>
